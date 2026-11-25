@@ -193,8 +193,8 @@ var DATA = {
            { date: "2026-11-06", name: null, amount: 5000 },
            { date: "2026-11-25", name: null, amount: 20000 },
            { date: "2026-11-25", name: null, amount: 15000 }],      /* { date: "2026-10-30", name: "Name or null", amount: 10000 } */
-  spending: [{ date: "—", items: { en: "Winter clothes for 5 children: 5 winter jackets, 5 pairs of winter shoes, 5 sets of gloves, hats and scarves, 5 pairs of winter pants", kk: "5 балаға қысқы киім: 5 қысқы күрте, 5 жұп қысқы аяқ киім, 5 жиынтық қолғап, бас киім және мойынорағыш, 5 қысқы шалбар" }, shop: "—", amount: 220000, receipt: "" },
-             { date: "—", items: { en: "Remaining donations, given to the parents in cash", kk: "Қалған қаражат, ата-анаға қолма-қол берілді" }, shop: "—", amount: 83025, receipt: "" }],    /* { date: "2026-11-05", items: {en:"Winter jackets ×5", kk:"Қысқы күртелер ×5"}, shop: "Shop", amount: 120000, receipt: "https://..." } */
+  spending: [{ date: "—", items: { en: "Winter clothes for 5 children: 5 winter jackets, 5 pairs of winter shoes, 5 sets of gloves, hats and scarves, 5 pairs of winter pants", kk: "5 балаға қысқы киім: 5 қысқы күрте, 5 жұп қысқы аяқ киім, 5 жиынтық қолғап, бас киім және мойынорағыш, 5 қысқы шалбар" }, shop: "—", amount: 220000 },
+             { date: "—", items: { en: "Remaining donations, given to the parents in cash", kk: "Қалған қаражат, ата-анаға қолма-қол берілді" }, shop: "—", amount: 83025 }],    /* { date: "2026-11-05", items: {en:"Winter jackets ×5", kk:"Қысқы күртелер ×5"}, shop: "Shop", amount: 120000 } */
   stepsState: ["done", "done", "done", "done", "done", "done"]
 };
 
@@ -213,9 +213,9 @@ var I18N = {
     donateNote: "The donations left after buying the clothes were given to the parents in cash.",
     donors: "Donors", dh: ["Date", "Donor", "KZT"], anon: "Anonymous donor",
     donorsEmpty: "The first donation will appear here.",
-    spending: "Spending", sh: ["Date", "Items", "Shop", "KZT", "Receipt"], view: "View",
+    spending: "Spending", sh: ["Date", "Items", "Shop", "KZT"],
     spendEmpty: "Nothing spent yet. Shopping starts once the coordinator confirms the needs list.",
-    spendNote: "The shops did not give receipts, so the clothing is reported as one total. Names and sizes of the children are not published.",
+    spendNote: "Names and sizes of the children are not published.",
     where: "Where we are",
     steps: [
       ["Team formed and family assigned", "CDF coordinator connected us with the family."],
@@ -255,9 +255,9 @@ var I18N = {
     donateNote: "Киім сатып алғаннан кейін қалған қаражат ата-анаға қолма-қол берілді.",
     donors: "Демеушілер", dh: ["Күні", "Демеуші", "KZT"], anon: "Аты аталмаған демеуші",
     donorsEmpty: "Алғашқы аударым осы жерде көрінеді.",
-    spending: "Шығыстар", sh: ["Күні", "Заттар", "Дүкен", "KZT", "Чек"], view: "Көру",
+    spending: "Шығыстар", sh: ["Күні", "Заттар", "Дүкен", "KZT"],
     spendEmpty: "Әзірге ештеңе жұмсалған жоқ. Координатор қажетті заттар тізімін растағаннан кейін сатып алуды бастаймыз.",
-    spendNote: "Дүкендер чек бермеді, сондықтан киімге жұмсалған қаражат жалпы сомамен көрсетілген. Балалардың аты-жөні мен өлшемдері жарияланбайды.",
+    spendNote: "Балалардың аты-жөні мен өлшемдері жарияланбайды.",
     where: "Қазіргі жағдай",
     steps: [
       ["Топ құрылды, отбасы бекітілді", "CDF координаторы бізді отбасымен байланыстырды."],
@@ -476,14 +476,12 @@ function render() {
 
   head($("sh"), T.sh, 3);
   var sb = $("spend"); sb.innerHTML = "";
-  if (!DATA.spending.length) { var tr1 = document.createElement("tr"), td1 = cell(T.spendEmpty, "wrap"); td1.colSpan = 5; tr1.appendChild(td1); sb.appendChild(tr1); }
+  if (!DATA.spending.length) { var tr1 = document.createElement("tr"), td1 = cell(T.spendEmpty, "wrap"); td1.colSpan = 4; tr1.appendChild(td1); sb.appendChild(tr1); }
   DATA.spending.forEach(function (s) {
     var tr = document.createElement("tr");
     tr.appendChild(cell(s.date, "num")); tr.appendChild(cell(s.items[lang] || s.items.en)); tr.appendChild(cell(s.shop));
     tr.appendChild(cell(fmt(s.amount), "num r"));
-    var td = document.createElement("td");
-    if (s.receipt) { var a = document.createElement("a"); a.href = s.receipt; a.target = "_blank"; a.rel = "noopener"; a.textContent = T.view; td.appendChild(a); }
-    tr.appendChild(td); sb.appendChild(tr);
+    sb.appendChild(tr);
   });
 
   $("steps").innerHTML = T.steps.map(function (s, i) {
