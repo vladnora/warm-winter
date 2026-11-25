@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
-<meta name="description" content="Warm Winter 2026: our team is collecting donations for winter presents for a family in Astana.">
+<meta name="description" content="Warm Winter 2026: final report on our winter clothes for a family in Astana.">
 <style>
 :root { padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
 body { margin: 0; }
@@ -135,7 +135,6 @@ footer { font-size: 14px; color: var(--muted); border-top: 1px solid var(--line)
     <h2 id="t-donate"></h2>
     <div class="pay">
       <p id="t-donate-p"></p>
-      <div class="row"><code id="phone"></code><button type="button" class="copy" id="copy"></button></div>
       <p class="note" id="t-donate-note"></p>
     </div>
   </section>
@@ -176,7 +175,7 @@ footer { font-size: 14px; color: var(--muted); border-top: 1px solid var(--line)
 /* Ledger. Updated from the team spreadsheet. */
 var DATA = {
   goal: 300000,
-  updated: "2026-11-06",
+  updated: "2026-11-25",
   donors: [{ date: "2026-10-29", name: null, amount: 20000 },
            { date: "2026-10-29", name: null, amount: 20000 },
            { date: "2026-10-29", name: null, amount: 20000 },
@@ -192,37 +191,40 @@ var DATA = {
            { date: "2026-11-04", name: null, amount: 15000 },
            { date: "2026-11-04", name: null, amount: 20000 },
            { date: "2026-11-04", name: null, amount: 10000 },
-           { date: "2026-11-06", name: null, amount: 5000 }],      /* { date: "2026-10-30", name: "Name or null", amount: 10000 } */
-  spending: [],    /* { date: "2026-11-05", items: {en:"Winter jackets ×5", kk:"Қысқы күртелер ×5"}, shop: "Shop", amount: 120000, receipt: "https://..." } */
-  stepsState: ["done", "now", "", "", "", ""]
+           { date: "2026-11-06", name: null, amount: 5000 },
+           { date: "2026-11-25", name: null, amount: 20000 },
+           { date: "2026-11-25", name: null, amount: 15000 }],      /* { date: "2026-10-30", name: "Name or null", amount: 10000 } */
+  spending: [{ date: "—", items: { en: "Winter clothes for 5 children", kk: "5 балаға қысқы киім" }, shop: "—", amount: 220000, receipt: "" },
+             { date: "—", items: { en: "Remaining money, given to the parents in cash", kk: "Қалған қаражат, ата-анаға қолма-қол берілді" }, shop: "—", amount: 103025, receipt: "" }],    /* { date: "2026-11-05", items: {en:"Winter jackets ×5", kk:"Қысқы күртелер ×5"}, shop: "Shop", amount: 120000, receipt: "https://..." } */
+  stepsState: ["done", "done", "done", "done", "done", "done"]
 };
 
 var I18N = {
   en: {
     title: "Warm Winter 2026",
-    lead: "We are a team of four: Maja, Zhansaya, Vlad and his dog Stela. This winter we are buying presents for a family from Astana: four girls and a boy. We are collecting money for warm winter clothes and other gifts for them, and we ask for your help. Thank you for your kindness!",
-    promise: "Every donor will receive a detailed report of the expenses. Every donation and every purchase is also listed on this page.",
+    lead: "We are a team of four: Maja, Zhansaya, Vlad and his dog Stela. This winter we bought clothes for a family from Astana, four girls and a boy, and brought them to the family. The project is complete. Thank you for your kindness!",
+    promise: "Fundraising is closed. This page is our final report: every donation and our spending are listed below.",
     giftnote: "Every gift under the tree is one donation, sized by its amount. Point at or tap a gift or a donor to find the match.",
-    collected: "collected, KZT", rest: "still to collect, KZT",
+    collected: "collected, KZT", rest: "still to collect, KZT", over: "above the goal, KZT",
     stats: function (p, n, s, l) { return "<span><b>" + p + "%</b> of goal</span><span><b>" + n + "</b> " + (n == 1 ? "donation" : "donations") + "</span><span><b>" + s + "</b> KZT spent</span><span><b>" + l + "</b> KZT in hand</span>"; },
     goalnote: function (g, u) { return "Goal: 5 children × 60,000 KZT = " + g + " KZT. Updated " + u + "."; },
-    donate: "How to donate",
-    donateP: "Send any amount by Kaspi transfer to our team lead, Vlad Nora. In the transfer comment, please write \"Warm Winter\".",
+    donate: "Fundraising is closed",
+    donateP: "Thank you to everyone who donated. We are no longer collecting, so please do not send further transfers.",
     copy: "Copy number", copied: "Copied",
-    donateNote: "If you'd like your name listed below, add it to the comment too, for example \"Warm Winter, Aigerim\". Without a name, you appear as \"Anonymous donor\" with the amount only. Any money left after shopping goes to extra items for this family, agreed with the coordinator.",
+    donateNote: "The money left after buying the clothes was given to the parents in cash.",
     donors: "Donors", dh: ["Date", "Donor", "KZT"], anon: "Anonymous donor",
     donorsEmpty: "The first donation will appear here.",
     spending: "Spending", sh: ["Date", "Items", "Shop", "KZT", "Receipt"], view: "View",
     spendEmpty: "Nothing spent yet. Shopping starts once the coordinator confirms the needs list.",
-    spendNote: "Receipts are shown with card and phone details covered. Items are listed by category. Names and sizes of the children are not published.",
+    spendNote: "The shops did not give receipts, so the clothing is reported as one total. Names and sizes of the children are not published.",
     where: "Where we are",
     steps: [
       ["Team formed and family assigned", "CDF coordinator connected us with the family."],
-      ["Fundraising", "Target: 300,000 KZT."],
-      ["Needs list from the coordinator", "Next."],
-      ["Shopping with receipts", "After the list is confirmed."],
-      ["Delivery visit", "Together with the coordinator, with the family's consent."],
-      ["Final report to CDF and donors", "Published here."]
+      ["Fundraising", "Closed: 323,025 KZT collected."],
+      ["Needs of the family", "Done."],
+      ["Shopping", "Winter clothes bought."],
+      ["Delivery", "The clothes were brought to the family."],
+      ["Final report to donors", "Published here."]
     ],
     footer: "Warm Winter 2026 team page. Questions: write to any of us.",
     about: "About Warm Winter and CDF",
@@ -242,29 +244,29 @@ var I18N = {
   },
   kk: {
     title: "Warm Winter 2026",
-    lead: "Біз төртеуміз: Maja, Zhansaya, Vlad және оның иті Stela. Осы қыста біз Астанадағы бір отбасына сыйлықтар сатып аламыз: төрт қыз бен бір ұл. Оларға жылы қысқы киім мен басқа да сыйлықтар алу үшін қаражат жинап жатырмыз, сіздің көмегіңізді сұраймыз. Мейірімділігіңіз үшін рақмет!",
-    promise: "Әрбір демеушіге шығыстар туралы толық есеп беріледі. Әрбір аударым мен сатып алу осы бетте де көрсетіледі.",
+    lead: "Біз төртеуміз: Maja, Zhansaya, Vlad және оның иті Stela. Осы қыста біз Астанадағы бір отбасына, төрт қыз бен бір ұлға, киім сатып алып, отбасына табыстадық. Жоба аяқталды. Мейірімділігіңіз үшін рақмет!",
+    promise: "Қаражат жинау жабылды. Бұл бет – біздің қорытынды есебіміз: барлық аударымдар мен шығыстар төменде көрсетілген.",
     giftnote: "Шыршаның астындағы әрбір сыйлық – бір аударым, өлшемі сомаға сай. Сәйкесін табу үшін сыйлыққа немесе демеушіге меңзеңіз не басыңыз.",
-    collected: "жиналды, KZT", rest: "әлі жинау керек, KZT",
+    collected: "жиналды, KZT", rest: "әлі жинау керек, KZT", over: "мақсаттан артық, KZT",
     stats: function (p, n, s, l) { return "<span><b>" + p + "%</b> мақсаттан</span><span><b>" + n + "</b> аударым</span><span><b>" + s + "</b> KZT жұмсалды</span><span><b>" + l + "</b> KZT қолда бар</span>"; },
     goalnote: function (g, u) { return "Мақсат: 5 бала × 60 000 KZT = " + g + " KZT. Жаңартылған күні: " + u + "."; },
-    donate: "Қалай көмектесуге болады",
-    donateP: "Кез келген соманы Kaspi арқылы топ жетекшісі Влад Нораға аударыңыз. Аударымның түсініктемесіне «Warm Winter» деп жазыңыз.",
+    donate: "Қаражат жинау жабылды",
+    donateP: "Көмектескендердің барлығына рақмет. Біз енді қаражат жинамаймыз, сондықтан аударым жібермеуіңізді сұраймыз.",
     copy: "Нөмірді көшіру", copied: "Көшірілді",
-    donateNote: "Атыңыз төмендегі тізімде көрінсін десеңіз, түсініктемеге атыңызды да қосыңыз, мысалы: «Warm Winter, Айгерім». Аты болмаса, «Аты аталмаған демеуші» деп тек соманы көрсетеміз. Сатып алудан кейін қалған қаражат осы отбасына координатормен келісілген қосымша заттарға жұмсалады.",
+    donateNote: "Киім сатып алғаннан кейін қалған қаражат ата-анаға қолма-қол берілді.",
     donors: "Демеушілер", dh: ["Күні", "Демеуші", "KZT"], anon: "Аты аталмаған демеуші",
     donorsEmpty: "Алғашқы аударым осы жерде көрінеді.",
     spending: "Шығыстар", sh: ["Күні", "Заттар", "Дүкен", "KZT", "Чек"], view: "Көру",
     spendEmpty: "Әзірге ештеңе жұмсалған жоқ. Координатор қажетті заттар тізімін растағаннан кейін сатып алуды бастаймыз.",
-    spendNote: "Чектерде карта мен телефон деректері жабылған. Заттар санат бойынша көрсетілген. Балалардың аты-жөні мен өлшемдері жарияланбайды.",
+    spendNote: "Дүкендер чек бермеді, сондықтан киімге жұмсалған қаражат жалпы сомамен көрсетілген. Балалардың аты-жөні мен өлшемдері жарияланбайды.",
     where: "Қазіргі жағдай",
     steps: [
       ["Топ құрылды, отбасы бекітілді", "CDF координаторы бізді отбасымен байланыстырды."],
-      ["Қаражат жинау", "Мақсат: 300 000 KZT."],
-      ["Координатордан қажетті заттар тізімі", "Келесі қадам."],
-      ["Чектермен сатып алу", "Тізім расталғаннан кейін."],
-      ["Сыйлықтарды табыстау", "Координатормен бірге, отбасының келісімімен."],
-      ["CDF мен демеушілерге қорытынды есеп", "Осы жерде жарияланады."]
+      ["Қаражат жинау", "Жабылды: 323 025 KZT жиналды."],
+      ["Отбасыға қажетті заттар", "Орындалды."],
+      ["Сатып алу", "Қысқы киім сатып алынды."],
+      ["Табыстау", "Киім отбасына жеткізілді."],
+      ["Демеушілерге қорытынды есеп", "Осы жерде жарияланды."]
     ],
     footer: "Warm Winter 2026 тобының беті. Сұрақтарыңыз болса, кез келгенімізге жазыңыз.",
     about: "Warm Winter және CDF туралы",
@@ -288,8 +290,7 @@ var lang = "en";
 try { var saved = localStorage.getItem("ww-lang"); if (saved === "kk" || saved === "en") lang = saved; } catch (e) {}
 
 function $(id) { return document.getElementById(id); }
-/* Phone and emails are assembled here so they never appear as plain text in the page source. */
-$("phone").textContent = ["+7", "775", "882", "38", "04"].join(" ");
+/* Emails are assembled here so they never appear as plain text in the page source. */
 function fmt(n) { return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, lang === "kk" ? " " : ","); }
 function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
 function cell(txt, cls) { var td = document.createElement("td"); td.textContent = txt; if (cls) td.className = cls; return td; }
@@ -297,7 +298,7 @@ function head(el, cols, rightIdx) { el.innerHTML = "<tr>" + cols.map(function (c
 
 var raised = DATA.donors.reduce(function (a, d) { return a + d.amount; }, 0);
 var spent = DATA.spending.reduce(function (a, d) { return a + d.amount; }, 0);
-var rest = Math.max(0, DATA.goal - raised);
+var rest = Math.abs(DATA.goal - raised), over = raised >= DATA.goal;
 var pct = Math.min(100, Math.round(raised / DATA.goal * 100));
 
 /* Scene: scalloped tree (placeholder until the final tree is chosen) with gifts piled in front of it.
@@ -430,12 +431,11 @@ function render() {
   document.documentElement.lang = lang;
   $("l-en").setAttribute("aria-pressed", lang === "en"); $("l-kk").setAttribute("aria-pressed", lang === "kk");
   $("t-title").textContent = T.title; $("t-lead").textContent = T.lead; $("t-promise").textContent = T.promise; $("t-giftnote").textContent = T.giftnote;
-  $("t-collected").textContent = T.collected; $("t-rest").textContent = T.rest;
+  $("t-collected").textContent = T.collected; $("t-rest").textContent = over ? T.over : T.rest;
   $("raised").textContent = fmt(raised); $("rest").textContent = fmt(rest);
   $("stats").innerHTML = T.stats(pct, DATA.donors.length, fmt(spent), fmt(raised - spent));
   $("t-goalnote").textContent = T.goalnote(fmt(DATA.goal), DATA.updated);
   $("t-donate").textContent = T.donate; $("t-donate-p").textContent = T.donateP; $("t-donate-note").textContent = T.donateNote;
-  $("copy").textContent = T.copy;
   $("t-donors").textContent = T.donors; $("t-spending").textContent = T.spending; $("t-spend-note").textContent = T.spendNote;
   $("t-where").textContent = T.where; $("t-footer").textContent = T.footer;
   $("t-about").textContent = T.about; $("t-cdf").textContent = T.cdfContact; $("t-team").textContent = T.team;
@@ -495,12 +495,6 @@ function render() {
 function setLang(l) { lang = l; try { localStorage.setItem("ww-lang", l); } catch (e) {} render(); }
 $("l-en").addEventListener("click", function () { setLang("en"); });
 $("l-kk").addEventListener("click", function () { setLang("kk"); });
-$("copy").addEventListener("click", function () {
-  var b = this;
-  function ok() { b.textContent = I18N[lang].copied; setTimeout(function () { b.textContent = I18N[lang].copy; }, 1500); }
-  function fallback() { var r = document.createRange(); r.selectNodeContents($("phone")); var s = getSelection(); s.removeAllRanges(); s.addRange(r); }
-  try { navigator.clipboard.writeText($("phone").textContent).then(ok, fallback); } catch (e) { fallback(); }
-});
 render();
 requestAnimationFrame(function () { $("fill").style.width = pct + "%"; });
 </script>
